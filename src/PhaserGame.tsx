@@ -9,8 +9,9 @@ const PhaserGame = () => {
 
     const config: Phaser.Types.Core.GameConfig = {
       type: Phaser.AUTO,
-      width: 800,
-      height: 600,
+      pixelArt: true,
+      width: 1024,
+      height: 510,
       backgroundColor: "#d0f0c0",
       physics: {
         default: "arcade",
@@ -33,6 +34,9 @@ const PhaserGame = () => {
     let moving = false;
 
     function preload(this: Phaser.Scene) {
+      this.load.image("tiles", "assets/tileset/tiles.png");
+      this.load.tilemapTiledJSON("map", "assets/maps/demo.json");
+
       this.load.image("looking-up", "assets/Avatars/lookingUp.png");
       this.load.image("looking-down", "assets/Avatars/lookingDown.png");
       this.load.image("looking-left", "assets/Avatars/lookingLeft.png");
@@ -45,12 +49,44 @@ const PhaserGame = () => {
     }
 
     function create(this: Phaser.Scene) {
+      const map = this.make.tilemap({
+        key: "map",
+        tileWidth: 16,
+        tileHeight: 16,
+      });
+
+      console.log("Loaded map:", map);
+      console.log("Tilesets:", map.tilesets);
+      console.log("Layer names:", map.getTileLayerNames());
+
+      const tileset = map.addTilesetImage("town", "tiles");
+      console.log("Tileset used:", tileset);
+
+      this.physics.world.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
+      this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
+
+      // Render layers (you can rename "Tile Layer 1" to whatever your layer is)
+      let groundLayer, decorationLayer, treesLayer;
+      if (tileset) {
+        groundLayer = map.createLayer("Ground", tileset, 0, 0);
+        decorationLayer = map.createLayer("Border", tileset, 0, 0);
+        treesLayer = map.createLayer("Trees", tileset, 0, 0);
+        if (treesLayer) {
+          treesLayer.setCollisionByProperty({ collides: true });
+        }
+      } else {
+        console.error("Tileset is null, cannot create layers.");
+      }
+
       player = this.physics.add
         .sprite(400, 300, "looking-down")
-        .setScale(0.5)
+        .setScale(0.4)
         .setCollideWorldBounds(true);
 
       cursors = this.input.keyboard!.createCursorKeys();
+      if (treesLayer) {
+        this.physics.add.collider(player, treesLayer);
+      }
     }
 
     function update(this: Phaser.Scene) {
@@ -89,6 +125,10 @@ const PhaserGame = () => {
       const desiredTexture = moving
         ? `walking-${currentDirection}`
         : `looking-${currentDirection}`;
+
+      this.cameras.main.startFollow(player, true, 0.1, 0.1);
+
+      this.cameras.main.setZoom(2);
 
       if (player.texture.key !== desiredTexture) {
         player.setTexture(desiredTexture);
