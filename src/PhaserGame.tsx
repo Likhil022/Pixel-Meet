@@ -72,7 +72,9 @@ const PhaserGame = () => {
         groundLayer = map.createLayer("Ground", tileset, 0, 0);
         decorationLayer = map.createLayer("Border", tileset, 0, 0);
         treesLayer = map.createLayer("Trees", tileset, 0, 0);
-        if (treesLayer) {
+        if (treesLayer && groundLayer && decorationLayer) {
+          groundLayer.setCollisionByProperty({ collides: true });
+          decorationLayer.setCollisionByProperty({ collides: true });
           treesLayer.setCollisionByProperty({ collides: true });
         }
       } else {
