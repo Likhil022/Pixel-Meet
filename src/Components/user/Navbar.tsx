@@ -4,6 +4,7 @@ import {
   SignInButton,
   UserButton,
 } from "@clerk/clerk-react";
+import { Button } from "@/Components/ui/button";
 const Navbar = () => {
   return (
     <div className="bg-white/40  flex justify-between px-10 h-16 align-middle py-3 text-black w-[93%] rounded-2xl mt-5 ">
@@ -17,14 +18,14 @@ const Navbar = () => {
           <a href="#Pricing">Pricing</a>
         </li>
       </div>
-      <div className=" text-lg my-auto font-medium">
+      <div className=" text-lg font-medium">
         <SignedOut>
-          <button className="border-1 border-amber-100 px-2 py-1.5 rounded-xl bg-[#06d6a0]">
-            <SignInButton />
-          </button>
+          <SignInButton mode="modal">
+            <Button variant="green">Login to Pixel Meet</Button>
+          </SignInButton>
         </SignedOut>
         <SignedIn>
-          <div className="flex items-center gap-1.5 border-1 rounded-full p-0.5">
+          <div className="flex items-center gap-1.5 border-1 border-black rounded-full p-0.5">
             <UserButton
               appearance={{
                 elements: {
