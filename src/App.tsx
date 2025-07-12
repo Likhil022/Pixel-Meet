@@ -1,11 +1,11 @@
-import PhaserGame from "./PhaserGame";
+// import PhaserGame from "./PhaserGame";
 
 function App() {
   return (
     <>
       <div className="flex flex-col w-full items-center justify-center gap-1">
-        <h1 className="text-3xl font-bold">Tappy Town</h1>
-        <PhaserGame />
+        <h1 className="text-3xl font-bold">Pixel Meet</h1>
+        {/* <PhaserGame /> */}
       </div>
     </>
   );
