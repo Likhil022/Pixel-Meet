@@ -13,9 +13,9 @@ const Navbar = () => {
       </div>
       <div className="py-1.5">
         <li className="list-none flex gap-10 text-xl font-semibold text-blue-950">
+          <a href="#Pricing">Dashboard</a>
           <a href="#features">Features</a>
           <a href="#howItWorks">How It Works</a>
-          <a href="#Pricing">Pricing</a>
         </li>
       </div>
       <div className=" text-lg font-medium">

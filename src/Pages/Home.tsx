@@ -1,6 +1,6 @@
 import { Button } from "@/Components/ui/button";
 import { SignedOut, SignInButton, SignedIn } from "@clerk/clerk-react";
-const Landing = () => {
+const Home = () => {
   return (
     <div className="flex flex-col items-center ">
       <section className="flex gap-10 justify-center items-center  h-[30rem]">
@@ -40,4 +40,4 @@ const Landing = () => {
   );
 };
 
-export default Landing;
+export default Home;
