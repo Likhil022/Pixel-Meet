@@ -1,3 +1,9 @@
+import {
+  SignedIn,
+  SignedOut,
+  SignInButton,
+  UserButton,
+} from "@clerk/clerk-react";
 const Navbar = () => {
   return (
     <div className="bg-white/40  flex justify-between px-10 h-16 align-middle py-3 text-black w-[93%] rounded-2xl mt-5 ">
@@ -12,9 +18,22 @@ const Navbar = () => {
         </li>
       </div>
       <div className=" text-lg my-auto font-medium">
-        <button className="border-1 border-amber-100 px-2 py-1.5 rounded-xl bg-[#06d6a0]">
-          Sign in with Google
-        </button>
+        <SignedOut>
+          <button className="border-1 border-amber-100 px-2 py-1.5 rounded-xl bg-[#06d6a0]">
+            <SignInButton />
+          </button>
+        </SignedOut>
+        <SignedIn>
+          <div className="flex items-center gap-1.5 border-1 rounded-full p-0.5">
+            <UserButton
+              appearance={{
+                elements: {
+                  userButtonAvatarBox: "custom-avatar", // Tailwind height & width
+                },
+              }}
+            />
+          </div>
+        </SignedIn>
       </div>
     </div>
   );

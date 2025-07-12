@@ -8,3 +8,8 @@
 h1 {
   font-family: Pixelify Sans;
 }
+
+.custom-avatar {
+  height: 2rem;
+  width: 2rem;
+}
