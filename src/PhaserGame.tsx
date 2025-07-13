@@ -12,11 +12,12 @@ const PhaserGame = () => {
       type: Phaser.AUTO,
       pixelArt: true,
       scale: {
-        mode: Phaser.Scale.RESIZE,
+        // mode: Phaser.Scale.RESIZE,
         autoCenter: Phaser.Scale.CENTER_BOTH,
         width: "100%",
         height: "100%",
       },
+
       backgroundColor: "#d0f0c0",
       physics: {
         default: "arcade",
@@ -149,12 +150,7 @@ const PhaserGame = () => {
     };
   }, []);
 
-  return (
-    <div
-      ref={gameRef}
-      className="h-12/12 w-auto min-h-[300px] overflow-hidden rounded-2xl shadow-lg"
-    />
-  );
+  return <div ref={gameRef} />;
 };
 //commiting to update PhaserGamer.tsx
 

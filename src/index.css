@@ -16,6 +16,10 @@ h1 {
   height: 2rem;
   width: 2rem;
 }
+canvas {
+  border-radius: 0.3rem;
+  display: block;
+}
 
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
