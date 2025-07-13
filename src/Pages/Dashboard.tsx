@@ -4,7 +4,7 @@ import { useState } from "react";
 const Dashboard = () => {
   const [active, setActive] = useState("first");
   return (
-    <div>
+    <div className="w-[90%]">
       <div className="flex justify-end gap-5 mt-4">
         <Button
           variant="outlineHoverFilled"

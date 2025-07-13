@@ -11,8 +11,12 @@ const PhaserGame = () => {
     const config: Phaser.Types.Core.GameConfig = {
       type: Phaser.AUTO,
       pixelArt: true,
-      width: 1024,
-      height: 510,
+      scale: {
+        mode: Phaser.Scale.RESIZE,
+        autoCenter: Phaser.Scale.CENTER_BOTH,
+        width: "100%",
+        height: "100%",
+      },
       backgroundColor: "#d0f0c0",
       physics: {
         default: "arcade",
@@ -35,18 +39,18 @@ const PhaserGame = () => {
     let moving = false;
 
     function preload(this: Phaser.Scene) {
-      this.load.image("tiles", "assets/tileset/tiles.png");
-      this.load.tilemapTiledJSON("map", "assets/maps/demo.json");
+      this.load.image("tiles", "/assets/tileset/tiles.png");
+      this.load.tilemapTiledJSON("map", "/assets/maps/demo.json");
 
-      this.load.image("looking-up", "assets/Avatars/lookingUp.png");
-      this.load.image("looking-down", "assets/Avatars/lookingDown.png");
-      this.load.image("looking-left", "assets/Avatars/lookingLeft.png");
-      this.load.image("looking-right", "assets/Avatars/lookingRight.png");
+      this.load.image("looking-up", "/assets/Avatars/lookingUp.png");
+      this.load.image("looking-down", "/assets/Avatars/lookingDown.png");
+      this.load.image("looking-left", "/assets/Avatars/lookingLeft.png");
+      this.load.image("looking-right", "/assets/Avatars/lookingRight.png");
 
-      this.load.image("walking-up", "assets/Avatars/walkingUp.png");
-      this.load.image("walking-down", "assets/Avatars/walkingDown.png");
-      this.load.image("walking-left", "assets/Avatars/walkingLeft.png");
-      this.load.image("walking-right", "assets/Avatars/walkingRight.png");
+      this.load.image("walking-up", "/assets/Avatars/walkingUp.png");
+      this.load.image("walking-down", "/assets/Avatars/walkingDown.png");
+      this.load.image("walking-left", "/assets/Avatars/walkingLeft.png");
+      this.load.image("walking-right", "/assets/Avatars/walkingRight.png");
     }
 
     function create(this: Phaser.Scene) {
@@ -145,7 +149,12 @@ const PhaserGame = () => {
     };
   }, []);
 
-  return <div ref={gameRef} />;
+  return (
+    <div
+      ref={gameRef}
+      className="h-12/12 w-auto min-h-[300px] overflow-hidden rounded-2xl shadow-lg"
+    />
+  );
 };
 //commiting to update PhaserGamer.tsx
 

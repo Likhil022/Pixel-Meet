@@ -3,7 +3,7 @@ import { SignedOut, SignInButton, SignedIn } from "@clerk/clerk-react";
 import { Link } from "react-router-dom";
 const Home = () => {
   return (
-    <div className="flex flex-col items-center ">
+    <div className="flex flex-col items-center w-[90%]">
       <section className="flex gap-10 justify-center items-center  h-[30rem]">
         <div className="w-[30rem]">
           <h2 className="text-4xl font-semibold text-white/80">
