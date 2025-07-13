@@ -1,5 +1,6 @@
 import { Button } from "@/Components/ui/button";
 import { SignedOut, SignInButton, SignedIn } from "@clerk/clerk-react";
+import { Link } from "react-router-dom";
 const Home = () => {
   return (
     <div className="flex flex-col items-center ">
@@ -24,7 +25,9 @@ const Home = () => {
               </SignInButton>
             </SignedOut>
             <SignedIn>
-              <Button variant="green">Get Started</Button>
+              <Link to="dashboard">
+                <Button variant="green">Get Started</Button>
+              </Link>
             </SignedIn>
           </div>
         </div>
