@@ -1,4 +1,5 @@
 import { Button } from "@/Components/ui/button";
+import Features from "@/Components/user/Features";
 import { SignedOut, SignInButton, SignedIn } from "@clerk/clerk-react";
 import { Link } from "react-router-dom";
 const Home = () => {
@@ -38,6 +39,9 @@ const Home = () => {
             className="h-80 rounded-2xl"
           />
         </div>
+      </section>
+      <section>
+        <Features />
       </section>
     </div>
   );

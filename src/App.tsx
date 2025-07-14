@@ -10,7 +10,7 @@ function App() {
   const hideNavbar = location.pathname.startsWith("/room/");
   return (
     <>
-      <div className="flex flex-col w-full items-center gap-1 h-screen bg-gradient-to-b from-[#bec4ff] to-[#21258d9f]">
+      <div className="flex flex-col w-full items-center gap-1 h-[35rem] bg-gradient-to-b from-[#bec4ff] to-[#21258d9f]">
         {!hideNavbar && <Navbar />}
         <Routes>
           <Route path="/" element={<Home />}></Route>
