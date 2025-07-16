@@ -1,5 +1,6 @@
 import { Button } from "@/Components/ui/button";
 import Features from "@/Components/user/Features";
+import Footer from "@/Components/user/Footer";
 import HowItWorks from "@/Components/user/HowItWorks";
 import { SignedOut, SignInButton, SignedIn } from "@clerk/clerk-react";
 import { Link } from "react-router-dom";
@@ -46,6 +47,9 @@ const Home = () => {
       </section>
       <section>
         <HowItWorks />
+      </section>
+      <section>
+        <Footer />
       </section>
     </div>
   );

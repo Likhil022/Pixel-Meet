@@ -12,7 +12,9 @@
 h1 {
   font-family: Pixelify Sans;
 }
-
+/* body {
+  background: rgb(18, 10, 55);
+} */
 .custom-avatar {
   height: 2rem;
   width: 2rem;
