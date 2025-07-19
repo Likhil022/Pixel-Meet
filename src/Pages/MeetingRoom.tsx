@@ -7,9 +7,9 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/Components/ui/tabs";
 import { MessageSquare, Video } from "lucide-react";
 
 const MeetingRoom = () => {
-  const [cameraOn, setCameraOn] = useState(true);
   const [activeTab, setActiveTab] = useState("chat");
 
+  const [cameraOn, setCameraOn] = useState(false);
   const [micOn, setMicOn] = useState(false);
   const [remoteStream, setRemoteStream] = useState<MediaStream | null>(null);
 
