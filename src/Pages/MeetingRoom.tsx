@@ -15,7 +15,7 @@ const MeetingRoom = () => {
 
   useEffect(() => {
     navigator.mediaDevices
-      .getUserMedia({ video: true, audio: false })
+      .getUserMedia({ video: false, audio: false })
       .then((stream) => {
         setRemoteStream(stream);
       })
